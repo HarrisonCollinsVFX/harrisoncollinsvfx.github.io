@@ -71,7 +71,7 @@ background-position:0 calc(var(--sy,0px)*-.6);-webkit-mask:linear-gradient(90deg
 .desc{max-width:62ch;color:var(--mut);margin:28px 0 56px;font-size:17px}
 .bd-title{display:flex;gap:16px;align-items:center;color:var(--dim);margin-bottom:20px}
 .bd-title::after{content:"";flex:1;height:1px;background:var(--line)}
-.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.shots{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));gap:28px}
 .shot figure{position:relative;aspect-ratio:var(--ar,16/9);border:1px solid var(--line);background:var(--g);overflow:hidden;display:grid;place-items:center}
 .shot video,.shot iframe,.shot img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:#000}
 .shot .tag{position:absolute;top:10px;left:10px;border:1px solid var(--line);background:rgba(10,10,10,.8);padding:2px 8px;color:var(--mut);z-index:2;pointer-events:none}
@@ -149,7 +149,7 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
   <div class="wrap" id="reel">
     <div class="reel-head">
       <div><p class="mono amb">The reel</p><h2 style="margin-top:14px">Scroll to unwind the reel.</h2></div>
-      <div style="max-width:34ch"><p class="mut" style="font-size:14px">Each project sits in its own frame: the finished shot first, then three breakdown spaces behind it.</p><p class="mono amb" style="margin-top:8px"></p></div>
+      <div style="max-width:34ch"><p class="mut" style="font-size:14px">Each project sits in its own frame: the finished shot first, then the breakdowns behind it.</p><p class="mono amb" style="margin-top:8px"></p></div>
     </div>
   </div>
   <div class="reel" id="frames"><span class="rail l"></span><span class="rail r"></span></div>
@@ -157,8 +157,7 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
   <div class="strip" aria-hidden="true"></div>
   <div class="wrap">
     <div class="reel" style="border-top-color:var(--line)"><div class="coda">
-      <p class="mono amb">T</p>
-      <h2>That's the reel! </h2>
+      <h2>That's the reel!</h2>
       <p>Available for freelance and studio work. Send the script, the plates or just an idea.</p>
       <div class="btns"><a class="btn pri" href="#/contact">Contact details</a><a class="btn" href="#top" id="rewind">Rewind to top</a></div>
     </div></div>
@@ -203,7 +202,7 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
     <div><p class="mono" style="color:var(--dim)"></p><p class="mono mut" style="margin-top:12px;line-height:1.8;text-transform:none;letter-spacing:.04em"></p></div>
   </div>
   <div class="btns"><a class="btn" href="#/">Back to the reel</a><a class="btn" href="#/about">About the artist</a></div>
-</div></section> File does not reside within a trusted folder.
+</div></section>
 </main>
 <footer class="mono">Placeholder portfolio · not a live site</footer>
 
@@ -211,12 +210,12 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
 
 const PROJECTS=[
 {title:"Cursed Pages",kind:"Student Short Film - Escape Studios",year:"2026",role:"Comp · DMP · Roto & Prep",tools:"Nuke · Photoshop · DaVinci Resolve",
- contrib:"I was responsible for 3 shots where i handled, complex cleanup, CG Integration and DMP",
- desc:"Over the course of 5 months I worked with 10 other artists to create a short film based on the prompt, 'A girl develops the power to jump into books and interact with the stories.'",
- finished:"",mainEmbed:"https://player.vimeo.com/video/1198840329",sample:false,ratio:"1998/1080",/* video aspect ratio; zoom:1.03 would also crop edges */g:"linear-gradient(135deg,#1b1a17,#2a2216 60%,#0b0b0b)",
- shots:[{tag:"Final comp",label:"Final comp",desc:"Placeholder: the finished frame or clip from your reel.",embed:"https://player.vimeo.com/video/1198998153"},
-        {tag:"Clay pass",label:"Clay pass",desc:"Placeholder: untextured model or clay render.",embed:"https://player.vimeo.com/video/1236039577"},
-        {tag:"Final film",label:"Final film",desc:"Placeholder: the finished piece playing in full.",embed:"https://player.vimeo.com/video/1236039584"}]},
+ contrib:"I was responsible for 3 shots, where I handled complex cleanup, CG integration and DMP.",
+ desc:"Over the course of 5 months, I worked with 10 other artists to create a short film based on the prompt, 'A girl develops the power to jump into books and interact with the stories.'",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1198840329",sample:false,ratio:"1998/1080",g:"linear-gradient(135deg,#1b1a17,#2a2216 60%,#0b0b0b)",
+ shots:[{tag:"Breakdown 1",label:"Breakdown 1",desc:"Full breakdown of complex cleanup, DMP, CG integration and roto.",embed:"https://player.vimeo.com/video/1198998153"},
+        {tag:"Breakdown 2",label:"Breakdown 2",desc:"Full breakdown of tracking marker removal and CG integration.",embed:"https://player.vimeo.com/video/1236039577?h=3e8cf6859a"},
+        {tag:"Breakdown 3",label:"Breakdown 3",desc:"Full breakdown of cleanup, DMP and roto.",embed:"https://player.vimeo.com/video/1236039584?h=16a020ef93"}]},
 {title:"Project Title Two",kind:"Placeholder: destruction sequence",year:"2025",role:"FX simulation",tools:"Houdini · Redshift",
  contrib:"Placeholder. Describe the rigs, solvers or caches you built and how much of the shot you owned.",
  desc:"Placeholder entry for a destruction sequence. Note the shot count, the delivery format and the deadline you were working to.",
@@ -224,24 +223,30 @@ const PROJECTS=[
  shots:[{tag:"Beauty",label:"Beauty pass",desc:"Placeholder: final lit and comped simulation."},
         {tag:"Wireframe",label:"Wireframe / fracture",desc:"Placeholder: fracture pieces or solver view."},
         {tag:"Particles",label:"Secondary FX",desc:"Placeholder: dust, sparks and debris layers."}]},
-{title:"Project Title Three",kind:"Placeholder: environment extension",year:"2025",role:"Comp · Matte painting",tools:"Nuke · Photoshop",
- contrib:"Placeholder. Explain which parts of the environment you built and how they were tracked into the plate.",
- desc:"Placeholder entry for a set extension. Describe the original plate, what was added and how the shot was matched.",
- finished:"",g:"linear-gradient(135deg,#102020,#1d2b2b 55%,#0b0b0b)",
- shots:[{tag:"Final",label:"Final shot",desc:"Placeholder: finished extension."},
-        {tag:"Plate",label:"Original plate",desc:"Placeholder: raw footage before work."},
-        {tag:"Layers",label:"Layer breakdown",desc:"Placeholder: matte painting and CG layers stacking up."}]},
-{title:"Project Title Four",kind:"Placeholder: cleanup and look dev",year:"2024",role:"Roto · Prep · Look dev",tools:"Nuke · DaVinci Resolve",
- contrib:"Placeholder. List the roto, paint and grade work you delivered on this piece.",
- desc:"Placeholder entry for cleanup and grade work. Note the shot count and the problems solved, such as wires, rigs or tracking markers.",
- finished:"",g:"linear-gradient(135deg,#221018,#2b1a22 55%,#0b0b0b)",
- shots:[{tag:"Graded",label:"Final grade",desc:"Placeholder: finished look."},
-        {tag:"Cleanup",label:"Cleanup before / after",desc:"Placeholder: paint and prep comparison."},
-        {tag:"Roto",label:"Roto matte",desc:"Placeholder: matte or alpha view."}]}
+{title:"Beauty Cleanup",kind:"",year:"2026",role:"Solo Project",roleLabel:"",tools:"Nuke",
+ contrib:"",cols:2,
+ desc:"Beauty cleanup shot using frequency separation to maintain detail on the face. I used machine learning with CopyCat within Nuke to speed up the process and to understand the fundamentals of ML tools.",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1242163053",sample:false,ratio:"1998/1080",g:"linear-gradient(135deg,#102020,#1d2b2b 55%,#0b0b0b)",
+ shots:[{tag:"Scan",label:"Scan",desc:"",embed:"https://player.vimeo.com/video/1242178278"},
+        {tag:"Frequency",label:"Frequency",desc:"I used frequency separation within Nuke to retain detail on the face.",embed:"https://player.vimeo.com/video/1242163055"}]},
+{title:"6 Week Team Project",kind:"",year:"2025",role:"Keying & Comp",tools:"Nuke",
+ contrib:"Responsible for keying and integration of fire, smoke and grass.",
+ desc:"In a team of 5 across many disciplines, we worked for 6 weeks to film, track, create a CG environment and composite it into a short shot.",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1242178283",sample:false,ratio:"1998/1080",g:"linear-gradient(135deg,#221018,#2b1a22 55%,#0b0b0b)",
+ shots:[{tag:"Final key",label:"Final Key",desc:"",embed:"https://player.vimeo.com/video/1242178282"}]}
 ];
 const $=s=>document.querySelector(s),pad=n=>String(n).padStart(2,"0"),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* Apply muted autoplay and continuous looping to every Vimeo player. */
+function vimeoPlaybackUrl(src){
+  const url=new URL(src,location.href);
+  url.searchParams.set("autoplay","1");
+  url.searchParams.set("muted","1");
+  url.searchParams.set("loop","1");
+  url.searchParams.set("autopause","0");
+  return url.toString();
+}
 function media(s,g){
-  if(s.embed)return `<iframe src="${esc(s.embed)}" title="${esc(s.label)}" loading="lazy" allow="fullscreen;picture-in-picture" allowfullscreen></iframe>`;
+  if(s.embed)return `<iframe src="${esc(vimeoPlaybackUrl(s.embed))}" title="${esc(s.label)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
   if(s.video)return `<video controls preload="none" playsinline ${s.poster?`poster="${esc(s.poster)}"`:""}><source src="${esc(s.video)}"></video>`;
   return `<div class="pp mono"><b>▶</b>Video placeholder<span style="color:var(--dim);text-transform:none;letter-spacing:0">Add a video or embed URL</span></div>`;
 }
@@ -249,10 +254,10 @@ const frames=$("#frames"),idx=$("#idx");
 PROJECTS.forEach((p,i)=>{
   const n=pad(i+1),total=pad(PROJECTS.length);
   frames.insertAdjacentHTML("beforeend",`
-  <article class="frame rv" id="p${n}" aria-label="${esc(p.title)}" style="--ar:${p.ratio||'16/9'};--z:${p.zoom||1}">
+  <article class="frame rv" id="p${n}" aria-label="${esc(p.title)}" style="--ar:${p.ratio||'16/9'};--z:${p.zoom||1};--cols:${p.cols||3}">
     <div class="ftop mono"><span class="amb">Frame_${n} <span style="color:var(--dim)">/ ${total}</span></span><span style="color:var(--dim)">${p.sample===false?"":"Sample content"}</span></div>
     <div class="grid">
-      <div>${p.mainEmbed?`<div class="still vid"><iframe src="${esc(p.mainEmbed)}" title="${esc(p.title)}" loading="lazy" allow="fullscreen;picture-in-picture" allowfullscreen></iframe></div><div class="cap"><h3 class="t">${esc(p.title)}</h3><span class="mono amb">${esc(p.kind)}</span></div>`:`      <div class="still" style="--g:${p.g}">
+      <div>${p.mainEmbed?`<div class="still vid"><iframe src="${esc(vimeoPlaybackUrl(p.mainEmbed))}" title="${esc(p.title)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><h3 class="t">${esc(p.title)}</h3>${p.kind?`<span class="mono amb">${esc(p.kind)}</span>`:""}</div>`:`      <div class="still" style="--g:${p.g}">
         ${p.finished?`<img src="${esc(p.finished)}" alt="${esc(p.title)} finished shot" loading="lazy">`:`<span class="ph mono">Finished still: add image</span>`}
         <span class="mark" aria-hidden="true"></span>
         <h3 class="t">${esc(p.title)}</h3><span class="mono amb" style="text-align:right">${esc(p.kind)}</span>
@@ -260,10 +265,10 @@ PROJECTS.forEach((p,i)=>{
       <aside>
         <dl class="meta">
           <div><dt class="mono">Year</dt><dd>${esc(p.year)}</dd></div>
-          <div><dt class="mono">Role</dt><dd>${esc(p.role)}</dd></div>
+          <div>${p.roleLabel===""?"":`<dt class="mono">Role</dt>`}<dd>${esc(p.role)}</dd></div>
           <div><dt class="mono">Tools</dt><dd>${esc(p.tools)}</dd></div>
         </dl>
-        <div class="contrib"><p class="mono amb">My contribution</p><p class="mut" style="font-size:14px;margin-top:8px">${esc(p.contrib)}</p></div>
+        ${p.contrib?`<div class="contrib"><p class="mono amb">My contribution</p><p class="mut" style="font-size:14px;margin-top:8px">${esc(p.contrib)}</p></div>`:""}
       </aside>
     </div>
     <p class="desc">${esc(p.desc)}</p>
@@ -326,7 +331,7 @@ $("#copy").addEventListener("click",async e=>{
 const HERO_EMBED="https://player.vimeo.com/video/1181728613?background=1&autoplay=1&loop=1&muted=1"; /* blurred hero reel (Vimeo background mode) */
 const HERO_VIDEO=""; /* or a self-hosted file, e.g. "reel.mp4" */
 if(!rm.matches&&(HERO_EMBED||HERO_VIDEO)){
-  const el=HERO_EMBED?Object.assign(document.createElement("iframe"),{src:HERO_EMBED,title:"Showreel background",allow:"autoplay"}):Object.assign(document.createElement("video"),{src:HERO_VIDEO,muted:true,loop:true,playsInline:true,autoplay:true});
+  const el=HERO_EMBED?Object.assign(document.createElement("iframe"),{src:vimeoPlaybackUrl(HERO_EMBED),title:"Showreel background",allow:"autoplay"}):Object.assign(document.createElement("video"),{src:HERO_VIDEO,muted:true,loop:true,playsInline:true,autoplay:true});
   $("#heroBg").replaceChildren(el);$("#heroPh").remove();
 }
 route();
