@@ -30,10 +30,8 @@ background:#0a0a0a}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.88),rgba(0,0,0,.4) 70%,rgba(0,0,0,.55))}
 .hero-bg{position:absolute;inset:-60px;z-index:0;overflow:hidden;filter:blur(26px) saturate(.9)}
 .hero-bg i{position:absolute;border-radius:50%}
-.hero-bg b{position:absolute;left:50%;top:50%;margin:-40px 0 0 -35px;border-left:70px solid rgba(255,255,255,.3);border-top:40px solid transparent;border-bottom:40px solid transparent}
 .hero-bg video{width:100%;height:100%;object-fit:cover}
 .hero-bg iframe{position:absolute;left:50%;top:50%;width:max(100%,178vh);height:max(100%,56.25vw);transform:translate(-50%,-50%);border:0;pointer-events:none}
-.hero .hero-ph{position:absolute;top:20px;right:20px;left:auto;width:auto;max-width:none;margin:0;z-index:2;border:1px solid var(--line);background:rgba(10,10,10,.7);padding:4px 10px;color:var(--mut)}
 .hero>*:not(.hero-bg){position:relative;z-index:2;max-width:1272px;width:100%;margin:0 auto}
 .hero h1{font:400 clamp(64px,13vw,190px)/.88 var(--serif);letter-spacing:-.02em;text-transform:uppercase}
 .hero h1 span{display:block}.hero h1 span+span{text-align:right}
@@ -85,34 +83,15 @@ background-position:0 calc(var(--sy,0px)*-.6);-webkit-mask:linear-gradient(90deg
 #idx a{color:var(--dim);display:flex;gap:8px;align-items:center}
 #idx a::after{content:"";width:10px;height:1px;background:currentColor;transition:width .3s}
 #idx a.on{color:var(--amb)}#idx a.on::after{width:28px}
-/* coda */
-.coda{padding:72px 56px;background:var(--panel)}
-.coda h2{max-width:14ch;margin:16px 0}
-.coda p{max-width:52ch;color:var(--mut)}
 .btns{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
 .btn{display:inline-flex;gap:10px;align-items:center;padding:16px 24px;border:1px solid #3a3a3a;font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;background:none;color:var(--tx);cursor:pointer}
 .btn.pri{background:var(--amb);border-color:var(--amb);color:#111}
 .strip{height:34px;margin:56px auto;max-width:1272px;border-block:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 6px,#1c1c1c 6px 28px,transparent 28px 34px) 0 50%/auto 14px no-repeat;background-repeat:repeat-x}
 .end{padding:0 20px 96px;max-width:1272px;margin:0 auto}
-/* about / contact */
-.pg{padding:96px 0 120px}
-.pg h1{font:400 clamp(48px,8vw,104px)/1 var(--serif);margin:16px 0 28px}
-.lead{max-width:56ch;color:var(--mut)}
-.two{display:grid;grid-template-columns:1fr 360px;gap:64px;margin-top:64px;align-items:start}
-.two p{margin-bottom:20px;color:var(--mut);max-width:62ch}
-.photo{aspect-ratio:3/4;border:1px solid var(--line);background:linear-gradient(160deg,#1b1a17,#0b0b0b);display:grid;place-items:center;color:var(--dim);background-image:repeating-linear-gradient(180deg,transparent 0 22px,rgba(255,255,255,.03) 22px 44px)}
-.note{border-left:2px solid var(--amb);padding-left:16px;margin-top:32px;color:var(--dim)}
-.mail{font:400 clamp(32px,6vw,72px)/1.1 var(--serif);color:var(--amb);word-break:break-all}
-.row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.cells{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin:64px 0 40px}
-.cells div{padding:24px;border-right:1px solid var(--line)}.cells div:last-child{border:0}
-.cells dd{font:13px/1.6 var(--mono);margin-top:10px}
-.box{border:1px solid var(--line);padding:40px;display:grid;grid-template-columns:1fr 280px;gap:40px}
-.box p{margin-bottom:14px}
 footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;color:var(--dim)}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
 @media(max-width:1100px){.rail{display:none}#idx{display:none!important}.frame,.coda{padding:48px 24px}}
-@media(max-width:860px){.grid,.two,.box{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.cells{grid-template-columns:1fr 1fr}.cells div{border-bottom:1px solid var(--line)}.meta{border-left:0;padding-left:0;grid-template-columns:1fr 1fr}.hero-foot .cue{display:none}.hero h1 span+span{text-align:left}header nav{gap:16px}}
+@media(max-width:860px){.grid{grid-template-columns:1fr}.shots{grid-template-columns:1fr}.meta{border-left:0;padding-left:0;grid-template-columns:1fr 1fr}.hero-foot .cue{display:none}.hero h1 span+span{text-align:left}header nav{gap:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.cue i{animation:none}.rail{background-position:0 0!important}}
 </style>
 </head>
@@ -120,7 +99,7 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
 <header>
   <a href="#/" class="mono amb logo">2026 VFX Portfolio</a>
   <nav class="mono" aria-label="Main">
-    <a href="#/" data-r="home">Portfolio</a><a href="#/about" data-r="about">About</a><a href="#/contact" data-r="contact">Contact</a>
+    <a href="#/" data-r="home">Portfolio</a>
   </nav>
   <div id="bar"></div>
 </header>
@@ -134,9 +113,7 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
       <i style="left:55%;top:5%;width:46%;height:60%;background:rgba(255,176,0,.38)"></i>
       <i style="left:6%;top:42%;width:38%;height:52%;background:rgba(90,110,140,.38)"></i>
       <i style="left:40%;top:62%;width:32%;height:40%;background:rgba(160,60,40,.32)"></i>
-      <b></b>
     </div>
-    <p class="mono hero-ph" id="heroPh">Full showreel video: placeholder</p>
     <div>
       <h1><span>Harrison</span><span>Collins</span></h1>
     </div>
@@ -155,56 +132,12 @@ footer{padding:28px 20px;border-top:1px solid var(--line);text-align:center;colo
   <div class="reel" id="frames"><span class="rail l"></span><span class="rail r"></span></div>
 
   <div class="strip" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="reel" style="border-top-color:var(--line)"><div class="coda">
-      <h2>That's the reel!</h2>
-      <p>Available for freelance and studio work. Send the script, the plates or just an idea.</p>
-      <div class="btns"><a class="btn pri" href="#/contact">Contact details</a><a class="btn" href="#top" id="rewind">Rewind to top</a></div>
-    </div></div>
-  </div>
+  <div class="wrap"><div class="btns" style="justify-content:center"><a class="btn" href="#top" id="rewind">Rewind to top</a></div></div>
   <p class="mono amb end" style="margin-top:56px">End of reel</p>
 </section>
 
-<!-- ABOUT -->
-<section class="page" id="about"><div class="wrap pg">
-  <p class="mono amb">Director's note</p>
-  <h1>About Me</h1>
-  <p class="lead">This is placeholder copy. Replace it with your own story: where you trained, the studios you have worked with and the kind of work you want more of.</p>
-  <div class="two">
-    <div>
-      <p class="mono dim" style="color:var(--dim)">[ Placeholder biography: replace this text ]</p>
-      <p>Write two or three short paragraphs here. Prospective clients read this page to work out whether you are the right fit, so keep it specific: the shows you cut your teeth on, the problems you enjoy solving, the pipelines you are comfortable inside.</p>
-      <p>A useful structure is: what you do, how you got here, and what you are looking for next. Avoid a list of software; that belongs in the toolkit section.</p>
-      <p class="mono note">No credits are claimed on this site. Add your own list here when you have one.</p>
-    </div>
-    <div class="photo mono">Portrait / still: add image</div>
-  </div>
-  <div class="btns"><a class="btn" href="#/">Back to the reel</a><a class="btn pri" href="#/contact">Contact</a></div>
-</div></section>
-
-<!-- CONTACT -->
-<section class="page" id="contact"><div class="wrap pg">
-  <div class="row">
-    <div><p class="mail" id="mail">Harrison.collins5@outlook.com</p><p class="mono amb" style="margin-top:20px"></p></div>
-    <button class="btn" id="copy" type="button">Copy address</button>
-  </div>
-  <dl class="cells mono">
-    <div><dt style="color:var(--dim)">Email</dt><dd>Harrison.collins5@outlook.com</dd></div>
-    <div><dt style="color:var(--dim)">Phone</dt><dd>+44 7940 961335</dd></div>
-    <div><dt style="color:var(--dim)">Based in</dt><dd>London, England</dd></div>
-    <div><dt style="color:var(--dim)">Availability</dt><dd>Placeholder: set your real availability</dd></div>
-  </dl>
-  <div class="box">
-    <div><p class="mono amb" style="margin-bottom:20px">Where to find me</p>
-      <p>www.linkedin.com/in/harrison-collinsvfx</p>
-      <p>https://vimeo.com/harrisoncollins</p>
-      <p></p></div>
-    <div><p class="mono" style="color:var(--dim)"></p><p class="mono mut" style="margin-top:12px;line-height:1.8;text-transform:none;letter-spacing:.04em"></p></div>
-  </div>
-  <div class="btns"><a class="btn" href="#/">Back to the reel</a><a class="btn" href="#/about">About the artist</a></div>
-</div></section>
 </main>
-<footer class="mono">Placeholder portfolio · not a live site</footer>
+<footer class="mono">© 2026 Harrison Collins</footer>
 
 <script>
 
@@ -212,27 +145,27 @@ const PROJECTS=[
 {title:"Cursed Pages",kind:"Student Short Film - Escape Studios",year:"2026",role:"Comp · DMP · Roto & Prep",tools:"Nuke · Photoshop · DaVinci Resolve",
  contrib:"I was responsible for 3 shots, where I handled complex cleanup, CG integration and DMP.",
  desc:"Over the course of 5 months, I worked with 10 other artists to create a short film based on the prompt, 'A girl develops the power to jump into books and interact with the stories.'",
- finished:"",mainEmbed:"https://player.vimeo.com/video/1198840329",sample:false,ratio:"1998/1080",g:"linear-gradient(135deg,#1b1a17,#2a2216 60%,#0b0b0b)",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1198840329",ratio:"1998/1080",g:"linear-gradient(135deg,#1b1a17,#2a2216 60%,#0b0b0b)",
  shots:[{tag:"Breakdown 1",label:"Breakdown 1",desc:"Full breakdown of complex cleanup, DMP, CG integration and roto.",embed:"https://player.vimeo.com/video/1198998153"},
         {tag:"Breakdown 2",label:"Breakdown 2",desc:"Full breakdown of tracking marker removal and CG integration.",embed:"https://player.vimeo.com/video/1236039577?h=3e8cf6859a"},
         {tag:"Breakdown 3",label:"Breakdown 3",desc:"Full breakdown of cleanup, DMP and roto.",embed:"https://player.vimeo.com/video/1236039584?h=16a020ef93"}]},
-{title:"Project Title Two",kind:"Placeholder: destruction sequence",year:"2025",role:"FX simulation",tools:"Houdini · Redshift",
- contrib:"Placeholder. Describe the rigs, solvers or caches you built and how much of the shot you owned.",
- desc:"Placeholder entry for a destruction sequence. Note the shot count, the delivery format and the deadline you were working to.",
- finished:"",g:"linear-gradient(135deg,#141a24,#3a2a1a 55%,#0b0b0b)",
- shots:[{tag:"Beauty",label:"Beauty pass",desc:"Placeholder: final lit and comped simulation."},
-        {tag:"Wireframe",label:"Wireframe / fracture",desc:"Placeholder: fracture pieces or solver view."},
-        {tag:"Particles",label:"Secondary FX",desc:"Placeholder: dust, sparks and debris layers."}]},
+{title:"Roto",kind:"",year:"2025",role:"Solo Project",roleLabel:"",tools:"Silhouette · Nuke",
+ contrib:"",
+ desc:"Roto project, created with Nuke and Silhouette.",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1242582824?h=cfc0e7a8ca",g:"linear-gradient(135deg,#141a24,#3a2a1a 55%,#0b0b0b)",
+ shots:[{tag:"Overlay",label:"Overlay",desc:"",embed:"https://player.vimeo.com/video/1242581718?h=de3f36cfd5"},
+        {tag:"Alpha",label:"Alpha",desc:"",embed:"https://player.vimeo.com/video/1242581730?h=f5efda2bc0"},
+        {tag:"Checkerboard",label:"Checkerboard",desc:"",embed:"https://player.vimeo.com/video/1242581719?h=247622c5b1"}]},
 {title:"Beauty Cleanup",kind:"",year:"2026",role:"Solo Project",roleLabel:"",tools:"Nuke",
  contrib:"",cols:2,
  desc:"Beauty cleanup shot using frequency separation to maintain detail on the face. I used machine learning with CopyCat within Nuke to speed up the process and to understand the fundamentals of ML tools.",
- finished:"",mainEmbed:"https://player.vimeo.com/video/1242163053",sample:false,ratio:"1998/1080",g:"linear-gradient(135deg,#102020,#1d2b2b 55%,#0b0b0b)",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1242163053",ratio:"1998/1080",g:"linear-gradient(135deg,#102020,#1d2b2b 55%,#0b0b0b)",
  shots:[{tag:"Scan",label:"Scan",desc:"",embed:"https://player.vimeo.com/video/1242178278"},
         {tag:"Frequency",label:"Frequency",desc:"I used frequency separation within Nuke to retain detail on the face.",embed:"https://player.vimeo.com/video/1242163055"}]},
 {title:"6 Week Team Project",kind:"",year:"2025",role:"Keying & Comp",tools:"Nuke",
  contrib:"Responsible for keying and integration of fire, smoke and grass.",
  desc:"In a team of 5 across many disciplines, we worked for 6 weeks to film, track, create a CG environment and composite it into a short shot.",
- finished:"",mainEmbed:"https://player.vimeo.com/video/1242178283",sample:false,ratio:"1998/1080",g:"linear-gradient(135deg,#221018,#2b1a22 55%,#0b0b0b)",
+ finished:"",mainEmbed:"https://player.vimeo.com/video/1242178283",ratio:"1998/1080",g:"linear-gradient(135deg,#221018,#2b1a22 55%,#0b0b0b)",
  shots:[{tag:"Final key",label:"Final Key",desc:"",embed:"https://player.vimeo.com/video/1242178282"}]}
 ];
 const $=s=>document.querySelector(s),pad=n=>String(n).padStart(2,"0"),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -248,17 +181,17 @@ function vimeoPlaybackUrl(src){
 function media(s,g){
   if(s.embed)return `<iframe src="${esc(vimeoPlaybackUrl(s.embed))}" title="${esc(s.label)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
   if(s.video)return `<video controls preload="none" playsinline ${s.poster?`poster="${esc(s.poster)}"`:""}><source src="${esc(s.video)}"></video>`;
-  return `<div class="pp mono"><b>▶</b>Video placeholder<span style="color:var(--dim);text-transform:none;letter-spacing:0">Add a video or embed URL</span></div>`;
+  return "";
 }
 const frames=$("#frames"),idx=$("#idx");
 PROJECTS.forEach((p,i)=>{
   const n=pad(i+1),total=pad(PROJECTS.length);
   frames.insertAdjacentHTML("beforeend",`
   <article class="frame rv" id="p${n}" aria-label="${esc(p.title)}" style="--ar:${p.ratio||'16/9'};--z:${p.zoom||1};--cols:${p.cols||3}">
-    <div class="ftop mono"><span class="amb">Frame_${n} <span style="color:var(--dim)">/ ${total}</span></span><span style="color:var(--dim)">${p.sample===false?"":"Sample content"}</span></div>
+    <div class="ftop mono"><span class="amb">Frame_${n} <span style="color:var(--dim)">/ ${total}</span></span><span></span></div>
     <div class="grid">
       <div>${p.mainEmbed?`<div class="still vid"><iframe src="${esc(vimeoPlaybackUrl(p.mainEmbed))}" title="${esc(p.title)}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><h3 class="t">${esc(p.title)}</h3>${p.kind?`<span class="mono amb">${esc(p.kind)}</span>`:""}</div>`:`      <div class="still" style="--g:${p.g}">
-        ${p.finished?`<img src="${esc(p.finished)}" alt="${esc(p.title)} finished shot" loading="lazy">`:`<span class="ph mono">Finished still: add image</span>`}
+        ${p.finished?`<img src="${esc(p.finished)}" alt="${esc(p.title)} finished shot" loading="lazy">`:""}
         <span class="mark" aria-hidden="true"></span>
         <h3 class="t">${esc(p.title)}</h3><span class="mono amb" style="text-align:right">${esc(p.kind)}</span>
       </div>`}</div>
@@ -281,24 +214,18 @@ PROJECTS.forEach((p,i)=>{
   idx.insertAdjacentHTML("beforeend",`<a href="#p${n}" data-i="${n}" aria-label="Go to project ${n}">${n}</a>`);
 });
 
-/* routing (hash based, works from any static host) */
+/* routing */
 function route(){
   const h=location.hash;
-  if(h.startsWith("#p")||h==="#reel"||h==="#top"){ // in-page anchors
-    show("home");
-    const el=h==="#top"?document.body:document.getElementById(h.slice(1));
-    setTimeout(()=>el&&(h==="#top"?scrollTo({top:0}):el.scrollIntoView()),0);return;
+  if(h.startsWith("#p")||h==="#reel"||h==="#top"){
+    const el=h==="#top"?null:document.getElementById(h.slice(1));
+    setTimeout(()=>el?el.scrollIntoView():scrollTo({top:0}),0);return;
   }
-  show(h==="#/about"?"about":h==="#/contact"?"contact":"home");
   scrollTo(0,0);
 }
-function show(id){
-  document.querySelectorAll(".page").forEach(s=>s.classList.toggle("on",s.id===id));
-  document.querySelectorAll("header nav a").forEach(a=>a.classList.toggle("on",a.dataset.r===id));
-  idx.classList.toggle("show",id==="home");
-  document.title=id==="about"?"About – Harrison Collins":id==="contact"?"Contact – Harrison Collins":"Harrison Collins – 2026 VFX Portfolio";
-  onScroll();
-}
+document.getElementById("home").classList.add("on");
+idx.classList.add("show");
+document.title="Harrison Collins – 2026 VFX Portfolio";
 addEventListener("hashchange",route);
 
 /* scroll-linked unwinding (native scroll, no hijacking) */
@@ -321,18 +248,12 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.25});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));
 
-/* copy email */
-$("#copy").addEventListener("click",async e=>{
-  const b=e.currentTarget,t=$("#mail").textContent;
-  try{await navigator.clipboard.writeText(t);b.textContent="Copied"}catch{b.textContent="Select and copy"}
-  setTimeout(()=>b.textContent="Copy address",1800);
-});
 /* Full showreel as blurred hero background: set a video file here (muted loop, no audio) */
 const HERO_EMBED="https://player.vimeo.com/video/1181728613?background=1&autoplay=1&loop=1&muted=1"; /* blurred hero reel (Vimeo background mode) */
 const HERO_VIDEO=""; /* or a self-hosted file, e.g. "reel.mp4" */
 if(!rm.matches&&(HERO_EMBED||HERO_VIDEO)){
   const el=HERO_EMBED?Object.assign(document.createElement("iframe"),{src:vimeoPlaybackUrl(HERO_EMBED),title:"Showreel background",allow:"autoplay"}):Object.assign(document.createElement("video"),{src:HERO_VIDEO,muted:true,loop:true,playsInline:true,autoplay:true});
-  $("#heroBg").replaceChildren(el);$("#heroPh").remove();
+  $("#heroBg").replaceChildren(el);
 }
 route();
 </script>
